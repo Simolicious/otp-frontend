@@ -5,6 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { OtpSubmitAndResendComponent } from './otp-submit-and-resend/otp-submit-and-resend.component';
 import { OtpConfirmComponent } from './otp-confirm/otp-confirm.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,10 @@ import { OtpConfirmComponent } from './otp-confirm/otp-confirm.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
