@@ -1,0 +1,27 @@
+.input-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.email-input {
+    width: 408px;
+}
+
+.button-container {
+    display: flex;
+    gap: 5px;
+}
+
+.button-style {
+    border-radius: 20px;
+    background-color: #00f239;
+    border: 1px solid #00f239;
+    color: #1c2352;
+    &:hover {
+        background-color: #fff;
+        color: #00f239;
+    }
+}
