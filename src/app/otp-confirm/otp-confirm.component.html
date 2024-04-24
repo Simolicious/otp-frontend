@@ -1,13 +1,14 @@
-<div class="input-container">
+<div class="input-container" [formGroup]="form">
     <mat-form-field appearance="fill" class="input-style">
         <mat-label>Email</mat-label>
-        <input matInput type="email">
+        <input matInput type="email" formControlName="email">
     </mat-form-field>
     <mat-form-field appearance="fill" class="input-style">
         <mat-label>OTP</mat-label>
-        <input matInput type="text">
+        <input matInput type="text" formControlName="otp">
     </mat-form-field>
     <div class="button-container">
-        <button mat-flat-button class="button-style">Confirm</button>
+        <button mat-flat-button class="button-style" (click)="onBack()"><mat-icon>west</mat-icon> Back</button>
+        <button mat-flat-button class="button-style" (click)="onConfirm()">Confirm</button>
     </div>
 </div>

@@ -1,10 +1,11 @@
 <div class="input-container">
     <mat-form-field appearance="fill" class="email-input">
         <mat-label>Email</mat-label>
-        <input matInput type="email">
+        <input matInput type="email" [formControl]="emailForm">
     </mat-form-field>
     <div class="button-container">
         <button mat-flat-button class="button-style" (click)="onSubmit()">Submit</button>
-        <button mat-flat-button class="button-style">Resend OTP</button>
+        <button mat-flat-button class="button-style" (click)="onResend()">Resend OTP</button>
+        <button mat-flat-button class="button-style" (click)="onConfirm()">Confirm <mat-icon>east</mat-icon></button>
     </div>
 </div>
