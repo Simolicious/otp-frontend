@@ -36,7 +36,10 @@ export class OtpSubmitAndResendComponent implements OnInit {
   }
 
   async onResend() {
-
+    if(this.isValid()) {
+      const result = await this.dataService.resendOTP(this.emailForm.value!).pipe(first()).toPromise();
+      this.snackBar.open(result?.message, 'Ok', { duration: 3000 });
+    }
   }
 
   onConfirm() {
