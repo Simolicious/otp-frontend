@@ -4,6 +4,7 @@ import { DataService } from '../services/data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { first } from 'rxjs';
 import { Router } from '@angular/router';
+import { ShareService } from '../services/share.service';
 
 @Component({
   selector: 'app-otp-confirm',
@@ -20,10 +21,12 @@ export class OtpConfirmComponent implements OnInit {
   constructor(
     private router: Router,
     private dataService: DataService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private shareService: ShareService,
   ) { }
 
   ngOnInit(): void {
+    this.form.get('email')?.patchValue(this.shareService.email$.getValue() || '');
   }
 
   isValid() {
@@ -33,6 +36,7 @@ export class OtpConfirmComponent implements OnInit {
 
   async onConfirm() {
     if(this.isValid()) {
+      this.shareService.setEmail(this.form.get('email')?.value!);
       const formValues = this.form.getRawValue();
       const result = await this.dataService.validateOTP(formValues.email!, formValues.otp!).pipe(first()).toPromise();
       this.snackBar.open(result?.message, 'Ok', { duration: 3000 });
